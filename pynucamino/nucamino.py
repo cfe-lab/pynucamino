@@ -2,13 +2,17 @@ import functools
 import json
 import subprocess
 
+from pynucamino import executable
+
 
 class Nucamino(object):
+
+    nuc_path = executable.path()
 
     @classmethod
     def _nucalign(cls, inputseqs, profile, genes, check=True):
         gene = ",".join(g.upper() for g in genes)
-        command = ["./nucamino", "align", profile, gene, "-q", "-f", "json"]
+        command = [cls.nuc_path, "align", profile, gene, "-q", "-f", "json"]
         if type(inputseqs) is not bytes:
             inputseqs = bytes(inputseqs, 'utf8')
         align_proc = subprocess.run(
