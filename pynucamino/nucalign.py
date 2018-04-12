@@ -41,6 +41,7 @@ class Nucamino(object):
         process should be checked, and an exception raised if it's an
         error code. The default is `True`.
         '''
+        self._check_profile(profile)
         self.result, self.proc = self._nucalign(
             seqs,
             genes=genes,
