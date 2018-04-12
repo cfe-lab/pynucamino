@@ -1,0 +1,17 @@
+language: python
+os:
+  - osx
+  - linux
+  - windows
+python:
+  - "3.6"
+cache: pip
+install:
+  - pip install git+https://github.com/hcv-shared/pynucamino@master#egg=pynucamino
+  - pip install -r test-requirements.txt
+script:
+  - pycodestyle pynucamino test
+  - python setyp.py test
+notifications:
+  email:
+    on_failure: change
