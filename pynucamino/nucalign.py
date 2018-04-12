@@ -43,7 +43,7 @@ class Nucamino(object):
         '''
         self.result, self.proc = self._nucalign(
             seqs,
-            gene=genes,
+            genes=genes,
             profile=profile,
             check=check,
         )
