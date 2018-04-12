@@ -59,7 +59,7 @@ class TestProfileGenes(unittest.TestCase):
             self.proc_mock.stdout.decode.assert_called_with("utf8")
             _check_profile.assert_called_with(self.mock_profile)
 
-    @mock.patch("pynucamino.Nucamino._check_profile", return_code=None)            
+    @mock.patch("pynucamino.Nucamino._check_profile", return_code=None)
     def test_profile_genes_cache(self, _check_profile):
         with mock.patch("subprocess.run", return_value=self.proc_mock):
             Nucamino.profile_genes.cache_clear()
