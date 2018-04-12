@@ -5,14 +5,16 @@ import subprocess
 from pynucamino import executable
 
 
+NUC_PATH = executable.path()
+
+
 class Nucamino(object):
 
-    nuc_path = executable.path()
 
     @classmethod
     def _nucalign(cls, inputseqs, profile, genes, check=True):
         gene = ",".join(g.upper() for g in genes)
-        command = [cls.nuc_path, "align", profile, gene, "-q", "-f", "json"]
+        command = [NUC_PATH, "align", profile, gene, "-q", "-f", "json"]
         if type(inputseqs) is not bytes:
             inputseqs = bytes(inputseqs, 'utf8')
         align_proc = subprocess.run(
@@ -62,7 +64,7 @@ class Nucamino(object):
     @functools.lru_cache(maxsize=1)
     def profiles():
         '''Returns a list of supported alignment profiles'''
-        command = ["./nucamino", "profile", "list"]
+        command = [NUC_PATH, "profile", "list"]
         proc = subprocess.run(command, stdout=subprocess.PIPE)
         proc.check_returncode()
         outp = proc.stdout.decode('utf8')
@@ -76,7 +78,7 @@ class Nucamino(object):
     @functools.lru_cache(maxsize=1)
     def profile_genes(cls, profile):
         cls._check_profile(profile)
-        command = ["./nucamino", "profile", "list-genes", profile]
+        command = [NUC_PATH, "profile", "list-genes", profile]
         proc = subprocess.run(command, stdout=subprocess.PIPE)
         proc.check_returncode()
         outp = proc.stdout.decode('utf8')
