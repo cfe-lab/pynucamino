@@ -10,7 +10,6 @@ NUC_PATH = executable.path()
 
 class Nucamino(object):
 
-
     @classmethod
     def _nucalign(cls, inputseqs, profile, genes, check=True):
         gene = ",".join(g.upper() for g in genes)
