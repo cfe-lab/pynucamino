@@ -1,10 +1,10 @@
 import contextlib
 import pathlib
 
-from .nucalign import Nucamino
 
 
 __all__ = ("align", "align_file")
+from .nucamino import Nucamino
 
 
 def align(seqs=None, profile=None, genes=None, check=True):
