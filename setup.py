@@ -17,7 +17,7 @@ setuptools.setup(
 
     test_suite="test",
 
-    python_requires=">=3.4,<3.7",
+    python_requires=">=3.6,<4.0",
     packages=setuptools.find_packages(),
     install_requires=["setuptools"],
     zip_safe=False,
