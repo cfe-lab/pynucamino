@@ -11,6 +11,15 @@ EXTENSIONS = {
 
 
 def path():
+    '''Returns the path the nucamino binary.
+
+    This function returns the path the the operating-system and
+    processor appropriate nucamino binary embedded in this package.
+
+    Assuming that the python process that loads the module is only
+    running on one computer, it should be fine to retrieve this path
+    while modules are being loaded.
+    '''
     os = platform.system().lower()
     arch_name, _ = platform.architecture()
     if '32' in arch_name:

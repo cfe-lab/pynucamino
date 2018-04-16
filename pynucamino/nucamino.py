@@ -76,6 +76,7 @@ class Nucamino(object):
     @classmethod
     @functools.lru_cache(maxsize=1)
     def profile_genes(cls, profile):
+        '''Returns a list of the available genes in an alignment profile.'''
         cls._check_profile(profile)
         command = [NUC_PATH, "profile", "list-genes", profile]
         proc = subprocess.run(command, stdout=subprocess.PIPE)
@@ -94,5 +95,12 @@ class Nucamino(object):
 
     @classmethod
     def cache_clear(cls):
+        '''Clear the caches on profiles() and profile_genes()
+
+        Those methods only retrieve information from `nucamino` the
+        first time they're invoked, and save the results for
+        subsequent calls. The first invokation of those methods after
+        clearing the cache will always retrieve data fron `nucamino`.
+        '''
         cls.profiles.cache_clear()
         cls.profile_genes.cache_clear()
