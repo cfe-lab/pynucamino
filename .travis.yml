@@ -9,7 +9,7 @@ install:
   - pip install git+https://github.com/hcv-shared/pynucamino@master#egg=pynucamino
   - pip install -r test-requirements.txt
 script:
-  - pycodestyle pynucamino test
+  - python setup.py flake8
   - python setup.py test
 notifications:
   email:
