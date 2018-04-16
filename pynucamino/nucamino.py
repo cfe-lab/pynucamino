@@ -77,16 +77,17 @@ class Nucamino(object):
     @functools.lru_cache(maxsize=1)
     def profile_genes(cls, profile):
         '''Returns a list of the available genes in an alignment profile.'''
-        cls._check_profile(profile)
-        command = [NUC_PATH, "profile", "list-genes", profile]
-        proc = subprocess.run(command, stdout=subprocess.PIPE)
-        proc.check_returncode()
-        outp = proc.stdout.decode('utf8')
-        return [
-            gene.strip()
-            for gene in outp.split()
-            if gene.strip()
-        ]
+        # cls._check_profile(profile)
+        # command = [NUC_PATH, "profile", "list-genes", profile]
+        # proc = subprocess.run(command, stdout=subprocess.PIPE)
+        # proc.check_returncode()
+        # outp = proc.stdout.decode('utf8')
+        # return [
+        #     gene.strip()
+        #     for gene in outp.split()
+        #     if gene.strip()
+        # ]
+        raise NotImplementedError("Waiting on a feature from upstream")
 
     @classmethod
     def _check_profile(cls, profile):
