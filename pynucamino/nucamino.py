@@ -91,3 +91,8 @@ class Nucamino(object):
     def _check_profile(cls, profile):
         if profile not in cls.profiles():
             raise ValueError("Unknown profile '{}'".format(profile))
+
+    @classmethod
+    def cache_clear(cls):
+        cls.profiles.cache_clear()
+        cls.profile_genes.cache_clear()
