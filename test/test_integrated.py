@@ -1,6 +1,5 @@
 '''Integration test for PyNucamino'''
 
-import io
 import json
 import unittest
 
