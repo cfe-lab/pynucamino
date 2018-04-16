@@ -49,6 +49,7 @@ class TestProfileGenes(unittest.TestCase):
         self.proc_mock.stdout = self.stdout_mock
         self.proc_mock.check_returncode = mock.Mock(return_value=None)
 
+    @unittest.skip("Waiting on a feature from upstream")
     @mock.patch("pynucamino.Nucamino._check_profile", return_code=None)
     def test_profile_genes(self, _check_profile):
         with mock.patch("subprocess.run", return_value=self.proc_mock):
@@ -59,6 +60,7 @@ class TestProfileGenes(unittest.TestCase):
             self.proc_mock.stdout.decode.assert_called_with("utf8")
             _check_profile.assert_called_with(self.mock_profile)
 
+    @unittest.skip("Waiting on a feature from upstream")
     @mock.patch("pynucamino.Nucamino._check_profile", return_code=None)
     def test_profile_genes_cache(self, _check_profile):
         with mock.patch("subprocess.run", return_value=self.proc_mock):
