@@ -9,7 +9,7 @@ setuptools.setup(
     author="Nathaniel Knight",
     author_email="nknight@cfenet.ubc.ca",
     description=(
-        "Python bindings to nucamino, A nucleotide to amino acid alignment "
+        "Python bindings to nucamino, a nucleotide to amino acid alignment "
         "program optimized for virus gene sequences."
     ),
     license="MIT",
