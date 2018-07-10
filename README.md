@@ -46,21 +46,20 @@ and function.
 
 ## Security Warning
 
-This library is probably vulnerable
-to
+This library is probably vulnerable to
 [command injection](https://www.owasp.org/index.php/Command_Injection)
 when run with malicious inputs. If you care at all about the security
 of your system, you shouldn't use this library unless you trust
-whoever is setting the parameters.
+whoever is providing the inputs.
 
 In practice, this means that setting up a web-server that runs this
 library using input from anonymous users on the public internet might
-get your systme hacked. The intended use case is writing internal
+get your system hacked. The intended use case is writing internal
 scripts that are run with pre-determined parameters; this case is
 perfectly safe.
 
 
-## Resources
+## External Links
 
 - [Nucamino GitHub repo](https://github.com/hivdb/nucamino)
 - [Nucamino Paper](https://www.ncbi.nlm.nih.gov/pubmed/28249562)
